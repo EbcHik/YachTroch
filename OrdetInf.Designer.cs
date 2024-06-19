@@ -43,6 +43,7 @@
             this.label1.Size = new System.Drawing.Size(111, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "ФИО заказчика";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox1
             // 
@@ -50,6 +51,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(338, 22);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button1
             // 
@@ -67,6 +69,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(129, 22);
             this.textBox2.TabIndex = 4;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // label2
@@ -77,6 +80,7 @@
             this.label2.Size = new System.Drawing.Size(188, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Номер паспорта заказчика";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // OrdetInf
             // 

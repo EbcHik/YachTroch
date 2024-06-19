@@ -12,17 +12,18 @@ namespace AirProject.DB
         public DAO() { }
         public static MySqlConnection connection = DBconnection.getConnection();
 
-        public static void dbSaveUser(string name, string lastName,string login,string password)
+        public static void dbSaveUser(string name, string lastName,string login,string password,int role)
         {
             try
             {
                 connection.Open();
-                string saveQuery = "INSERT INTO users(name, last_name, login, password, theme) VALUES(@name, @last_name, @login, @password, 'white')";
+                string saveQuery = "INSERT INTO users(name, last_name, login, password, theme, role) VALUES(@name, @last_name, @login, @password, 'white',@role)";
                 MySqlCommand cmd = new MySqlCommand(saveQuery, connection);
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@last_name", lastName);
                 cmd.Parameters.AddWithValue("@login", login);
                 cmd.Parameters.AddWithValue("@password", password);
+                cmd.Parameters.AddWithValue("@role", role);
 
                 cmd.ExecuteNonQuery();
                 Console.WriteLine("Пользователь сохранен");
@@ -72,7 +73,7 @@ namespace AirProject.DB
             try
             {
                 connection.Open();
-                string selectQuery = "SELECT name, last_name, login, password, theme FROM users WHERE login = @login";
+                string selectQuery = "SELECT user_id, name, last_name, login, password, theme, role, status FROM users WHERE login = @login";
                 MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
                 cmd.Parameters.AddWithValue("@login", login);
 
@@ -86,7 +87,12 @@ namespace AirProject.DB
                             LastName = reader["last_name"].ToString(),
                             Login = reader["login"].ToString(),
                             Password = reader["password"].ToString(),
-                            Theme = reader["theme"].ToString()
+                            Theme = reader["theme"].ToString(),
+                            Role = Convert.ToInt32(reader.GetByte(reader.GetOrdinal("role"))),
+                            Status = reader["status"].ToString(),
+                            Id = (int)reader["user_id"]
+
+
                         };
                     }
                 }
@@ -124,7 +130,8 @@ namespace AirProject.DB
                     order_ready,
                     order_date,
                     dop_services,
-                    res_price
+                    res_price,
+                    user_id
                 ) VALUES (
                     @ProductName,
                     @BoatType,
@@ -138,7 +145,8 @@ namespace AirProject.DB
                     @OrderReady,
                     @OrderDate,
                     @Dop_services,
-                    @Res_price
+                    @Res_price,
+                    @user_id
                 )";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
@@ -156,6 +164,7 @@ namespace AirProject.DB
                     cmd.Parameters.AddWithValue("@OrderDate", order.orderDate);
                     cmd.Parameters.AddWithValue("@Dop_services", order.dopService);
                     cmd.Parameters.AddWithValue("@Res_price", order.resPrice);
+                    cmd.Parameters.AddWithValue("@user_id", Basket.userID);
 
                     connection.Open();
                     cmd.ExecuteNonQuery();
@@ -163,6 +172,72 @@ namespace AirProject.DB
                 }
             
         }
+
+        public static void dbUpdateUser(int userId, string name, string lastName, string status,string theme)
+        {
+            try
+            {
+                connection.Open();
+                string updateQuery = "UPDATE users SET name = @name, last_name = @last_name, status = @status, theme = @theme WHERE user_id = @userId";
+                MySqlCommand cmd = new MySqlCommand(updateQuery, connection);
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@last_name", lastName);
+                cmd.Parameters.AddWithValue("@userId", userId);
+                cmd.Parameters.AddWithValue("@status", status);
+                cmd.Parameters.AddWithValue("@theme", theme);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    Console.WriteLine("Пользователь обновлен");
+                }
+                else
+                {
+                    Console.WriteLine("Пользователь с указанным ID не найден");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ошибка обновления пользователя!");
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public static void dbUpdateUserPassw(int userId,string passw)
+        {
+            try
+            {
+                connection.Open();
+                string updateQuery = "UPDATE users SET password = @passw WHERE user_id = @userId";
+                MySqlCommand cmd = new MySqlCommand(updateQuery, connection);
+                cmd.Parameters.AddWithValue("@userId", userId);
+                cmd.Parameters.AddWithValue("@passw", passw);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    Console.WriteLine("Пользователь обновлен");
+                }
+                else
+                {
+                    Console.WriteLine("Пользователь с указанным ID не найден");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ошибка обновления пользователя!");
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
     }
 
 }

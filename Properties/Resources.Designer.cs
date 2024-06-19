@@ -63,9 +63,9 @@ namespace AirProject.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap c253b1fcbde280b6753f92913e5a4b61 {
+        internal static System.Drawing.Bitmap shopping_trolley_white_background {
             get {
-                object obj = ResourceManager.GetObject("c253b1fcbde280b6753f92913e5a4b61", resourceCulture);
+                object obj = ResourceManager.GetObject("shopping-trolley-white-background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace AirProject.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Classic {
+        internal static System.Drawing.Bitmap Standrrt {
             get {
-                object obj = ResourceManager.GetObject("Classic", resourceCulture);
+                object obj = ResourceManager.GetObject("Standrrt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

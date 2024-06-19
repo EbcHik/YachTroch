@@ -50,12 +50,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddBoatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddBoatForm.Designer.cs">
+      <DependentUpon>AddBoatForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChenchStatus.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChenchStatus.Designer.cs">
       <DependentUpon>ChenchStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChengePasswFormForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChengePasswFormForm.Designer.cs">
+      <DependentUpon>ChengePasswFormForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB\BoatDAO.cs" />
     <Compile Include="DB\DAO.cs" />
     <Compile Include="DataForm.cs">
       <SubType>Form</SubType>
@@ -64,6 +77,11 @@
       <DependentUpon>DataForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\DBconnection.cs" />
+    <Compile Include="Model\Basket.cs" />
+    <Compile Include="Model\Boat.cs" />
+    <Compile Include="Model\DopService.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\UserTheme.cs" />
     <Compile Include="OrdetInf.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,13 +106,48 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Boat.cs" />
+    <Compile Include="Model\BoatOrder.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Service\UserService.cs" />
+    <Compile Include="SourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SourseForm.Designer.cs">
+      <DependentUpon>SourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserDataForm.Designer.cs">
+      <DependentUpon>UserDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserProfileForm.Designer.cs">
+      <DependentUpon>UserProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ВasketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ВasketForm.Designer.cs">
+      <DependentUpon>ВasketForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddBoatForm.resx">
+      <DependentUpon>AddBoatForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChenchStatus.resx">
       <DependentUpon>ChenchStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChengePasswFormForm.resx">
+      <DependentUpon>ChengePasswFormForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataForm.resx">
       <DependentUpon>DataForm.cs</DependentUpon>
@@ -113,14 +166,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="SourseForm.resx">
+      <DependentUpon>SourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserDataForm.resx">
+      <DependentUpon>UserDataForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserProfileForm.resx">
+      <DependentUpon>UserProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ВasketForm.resx">
+      <DependentUpon>ВasketForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -138,10 +198,16 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\c253b1fcbde280b6753f92913e5a4b61.jpg" />
+    <None Include="Resources\Classic.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Classic.jpg" />
+    <Content Include="Resources\luks.jpg" />
+    <Content Include="Resources\shopping-trolley-white-background.png" />
+    <None Include="Resources\shopping-trolley-white-background2.png" />
+    <Content Include="Resources\standart.jpg" />
+    <None Include="Resources\Standrrt.jpg" />
+    <None Include="Resources\standart1.jpg" />
+    <None Include="Resources\shopping-trolley-white-background1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -106,6 +106,7 @@
             this.Controls.Add(this.LoginLable);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Авторизация";

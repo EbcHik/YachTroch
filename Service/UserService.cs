@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace AirProject.Service
 {
     internal class UserService{
-        public Boolean saveUser(string name, string lastName, string login, string password){
+        public Boolean saveUser(string name, string lastName, string login, string password,int role){
             if (!string.IsNullOrEmpty(name) &&
             !string.IsNullOrEmpty(lastName) &&
             !string.IsNullOrEmpty(login) &&
@@ -18,7 +18,7 @@ namespace AirProject.Service
             {
                 if (!DAO.IsUserExists(login))
                 {
-                    DAO.dbSaveUser(name, lastName, login, password);
+                    DAO.dbSaveUser(name, lastName, login, password,role);
                     return true;
                 }
                 else
@@ -34,10 +34,13 @@ namespace AirProject.Service
             }
         }
 
+      
+
 
         public bool entry(string login, string password) {
             if (DAO.IsUserExists(login)){
                 User user = DAO.GetUserByLogin(login);
+
                 if (user.Password == password) { 
                     return true;
                 }

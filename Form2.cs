@@ -42,9 +42,27 @@ namespace AirProject
         private void RegAcceptButton_Click(object sender, EventArgs e)
         {
             UserService userService = new UserService();
-            if(userService.saveUser(textBoxName.Text, textBoxLastName.Text, textBoxlogin.Text, textBoxPassw.Text))
+
+            if (AdminCheckRadioButton.Checked)
             {
-                Close();
+                if (textBoxPassw.Text == "admin")
+                {
+                    if (userService.saveUser(textBoxName.Text, textBoxLastName.Text, textBoxlogin.Text, textBoxPassw.Text, 1))
+                    {
+                        Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Для авторизации с ролью администратор нужен определенный пароль.");
+                }
+            }
+            else
+            {
+                if (userService.saveUser(textBoxName.Text, textBoxLastName.Text, textBoxlogin.Text, textBoxPassw.Text, 0))
+                {
+                    Close();
+                }
             }
         }
 

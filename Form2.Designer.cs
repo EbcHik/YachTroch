@@ -37,12 +37,13 @@
             this.LoginLable = new System.Windows.Forms.Label();
             this.PaswLabel = new System.Windows.Forms.Label();
             this.RegAcceptButton = new System.Windows.Forms.Button();
+            this.AdminCheckRadioButton = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(315, 126);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(183, 22);
             this.textBoxName.TabIndex = 1;
@@ -50,7 +51,7 @@
             // textBoxLastName
             // 
             this.textBoxLastName.Location = new System.Drawing.Point(569, 126);
-            this.textBoxLastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxLastName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(172, 22);
             this.textBoxLastName.TabIndex = 2;
@@ -58,7 +59,7 @@
             // textBoxlogin
             // 
             this.textBoxlogin.Location = new System.Drawing.Point(315, 193);
-            this.textBoxlogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxlogin.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxlogin.Name = "textBoxlogin";
             this.textBoxlogin.Size = new System.Drawing.Size(183, 22);
             this.textBoxlogin.TabIndex = 3;
@@ -66,7 +67,7 @@
             // textBoxPassw
             // 
             this.textBoxPassw.Location = new System.Drawing.Point(569, 193);
-            this.textBoxPassw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPassw.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPassw.Name = "textBoxPassw";
             this.textBoxPassw.Size = new System.Drawing.Size(172, 22);
             this.textBoxPassw.TabIndex = 4;
@@ -117,8 +118,8 @@
             // 
             // RegAcceptButton
             // 
-            this.RegAcceptButton.Location = new System.Drawing.Point(393, 263);
-            this.RegAcceptButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RegAcceptButton.Location = new System.Drawing.Point(400, 290);
+            this.RegAcceptButton.Margin = new System.Windows.Forms.Padding(4);
             this.RegAcceptButton.Name = "RegAcceptButton";
             this.RegAcceptButton.Size = new System.Drawing.Size(265, 28);
             this.RegAcceptButton.TabIndex = 9;
@@ -126,11 +127,23 @@
             this.RegAcceptButton.UseVisualStyleBackColor = true;
             this.RegAcceptButton.Click += new System.EventHandler(this.RegAcceptButton_Click);
             // 
+            // AdminCheckRadioButton
+            // 
+            this.AdminCheckRadioButton.AutoSize = true;
+            this.AdminCheckRadioButton.Location = new System.Drawing.Point(466, 252);
+            this.AdminCheckRadioButton.Name = "AdminCheckRadioButton";
+            this.AdminCheckRadioButton.Size = new System.Drawing.Size(131, 20);
+            this.AdminCheckRadioButton.TabIndex = 10;
+            this.AdminCheckRadioButton.TabStop = true;
+            this.AdminCheckRadioButton.Text = "Администратор";
+            this.AdminCheckRadioButton.UseVisualStyleBackColor = true;
+            // 
             // RegForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.AdminCheckRadioButton);
             this.Controls.Add(this.RegAcceptButton);
             this.Controls.Add(this.PaswLabel);
             this.Controls.Add(this.LoginLable);
@@ -140,7 +153,8 @@
             this.Controls.Add(this.textBoxlogin);
             this.Controls.Add(this.textBoxLastName);
             this.Controls.Add(this.textBoxName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RegForm";
             this.Text = "Регистрация";
             this.Load += new System.EventHandler(this.RegForm_Load);
@@ -160,5 +174,6 @@
         private System.Windows.Forms.Label LoginLable;
         private System.Windows.Forms.Label PaswLabel;
         private System.Windows.Forms.Button RegAcceptButton;
+        private System.Windows.Forms.RadioButton AdminCheckRadioButton;
     }
 }

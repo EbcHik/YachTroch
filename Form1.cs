@@ -1,4 +1,5 @@
 ﻿using AirProject.DB;
+using AirProject.Model;
 using AirProject.Service;
 using System;
 using System.Collections.Generic;
@@ -33,10 +34,21 @@ namespace AirProject
         private void EntryButton_Click(object sender, EventArgs e){
           UserService userService = new UserService();
             if(userService.entry(textBoxLogin.Text, textBoxPassword.Text)){
-                MainForm mainForm = new MainForm();
-                this.Hide();
-                mainForm.ShowDialog();
-                Close();
+                User user = DAO.GetUserByLogin(textBoxLogin.Text);
+                if (user.Role == 1){
+                    MainForm mainForm = new MainForm();
+                    this.Hide();
+                    mainForm.ShowDialog();
+                    Close();
+                }
+                else
+                {
+                    SourseForm form = new SourseForm(user);
+                    this.Hide();
+                    form.ShowDialog();
+                    Close();
+                }
+
             }
             else
             {

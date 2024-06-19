@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace AirProject.Model
 {
-    public class BoatOrder
+    public class Boat
     {
-        public string ProductName { get; set; }
-        public string OrderNumber { get; set; }
-        public string BoatType { get; set; }
-        public int RowerSeatCount { get; set; }
-        public string WoodType { get; set; }
-        public string Color { get; set; }
-        public string HasMast { get; set; }
-        public decimal BasePrice { get; set; }
-        public string CustomerName { get; set; }
-        public string CustomerPassportNumber { get; set; }
-        public string OrderReady { get; set; }
 
-        public DateTime orderDate { get; set; }
-        public string dopService { get; set; }
-        public string resPrice { get; set; }
-        public int countDopServises {  get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Class { get; set; }
+        public string Model { get; set; }
+        public string Has_must { get; set; }
+        public decimal Price { get; set; }
+        public int RowerSeatCount{ get; set; }
+
+
+        public override string ToString()
+        {
+            return String.Concat(Model);
+        }
+
+
+
     }
-
 }
